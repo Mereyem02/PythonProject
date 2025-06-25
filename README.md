@@ -1,4 +1,4 @@
-# Gestion_De_Bibliotheques_ELHAOZUI_MEREYEM_GI3
+# Gestion_De_Bibliotheques_ELHAOUZI_MEREYEM_GI3
 #  Application de Gestion de Bibliothèque avec Tkinter
 
 ##  Réalisé par :
