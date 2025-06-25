@@ -9,12 +9,13 @@ ENSAO – École Nationale des Sciences Appliquées d’Oujda
 ## 🛠️ Guide d'installation
 
 ### ✅ Prérequis :
-- Python 3.10 ou supérieur
+- Python 3.12 ou supérieur
 - Les bibliothèques suivantes :
   - `tkinter`
   - `matplotlib`
 
 ### 📦 Installation des dépendances :
+#Je travaill avec environement pycharm
 pip install matplotlib
 #Tkinter est deja inclus dans la version de python
 
@@ -43,12 +44,13 @@ PythonProject/
 │   └── membres                       # Fichier texte (base de données des membres)
 │
 └── README.md                         # Documentation du projet (à créer)
-
+#requirement.txt
 
 ▶️ Exécution de l'application
 Pour lancer l'application :
 
-python mainlignecommNDE.py
+python mainlignecommNDE.py #Pour lancer dans terminal les choix
+python main.py #Pour lancer application graphique
 
 ✨ Fonctionnalités principales:
 
