@@ -4,7 +4,7 @@ from datetime import datetime
 
 from src.bibliotheques import StatutLivre, Livre, Bibliotheque, Membre
 
-
+#Fonction de choix
 def menu():
     print("\n=== Gestion de Bibliotheques ===")
     print("1. Ajouter un livre")
@@ -18,7 +18,7 @@ def menu():
     choix = input("Choisissez une option entre (1-7) : ")
     return choix
 
-
+#Fonction pour affichage de statistiques
 def afficher_statistiques(biblio):
     total_livres = len(biblio.livres)
     livres_empruntes = sum(1 for livre in biblio.livres.values() if livre.statut == StatutLivre.EMPRUNTE)
@@ -28,13 +28,13 @@ def afficher_statistiques(biblio):
     print(f"Livres empruntés : {livres_empruntes}")
     print(f"Membres inscrits : {membres}")
 
-
+#Fonction principale
 def main():
     biblio = Bibliotheque()
     biblio.charger_livres()
     biblio.charger_membres()
 
-    while True:
+    while True: #Donne le personne le choix j'ausque le choix de 7 qui permet de quitter la boucle grace a break
         choix = menu()
 
         if choix == "1":
