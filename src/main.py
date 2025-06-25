@@ -11,7 +11,7 @@ class ApplicationPython:
         self.root.geometry("1000x600")
         self.root.configure(bg="#faf3e0")
 
-        # Style ttk personnalisé
+
         style = ttk.Style(self.root)
         style.theme_use('vista')
         style.configure("Treeview.Heading", font=("Calibri", 12, "bold"), foreground="#9C27B0")
