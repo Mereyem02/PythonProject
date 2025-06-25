@@ -2,6 +2,7 @@ from datetime import datetime
 from enum import Enum
 from exception import *
 
+ #Je choisi de travailler avec livre et membre et historiques sans extension a cause d'un erreur sans solution donc j'adapte a cette idee
 
 class StatutLivre(Enum):
     DISPONIBLE = "Disponible"
@@ -39,18 +40,19 @@ class Bibliotheque:
         self.membres = {}
         self.charger_livres()
         self.charger_membres()
-
+#Permet d'ajouter un livre dans le fichier
     def ajouter_livre(self, livre: Livre):
         self.livres[livre.ISBN] = livre
-
+#Permet de supprimer un livre dans le fichier livre
     def supprimer_livre(self, livre: Livre):
         if livre.ISBN in self.livres:
             del self.livres[livre.ISBN]
-
+#Permet d'enregistrer un membre dans le fichier membre
     def enregistrer_membre(self, membre: Membre):
         self.membres[membre.id] = membre
 
     def emprunter_livre(self, id_membre, ISBN):
+        
         if id_membre not in self.membres:
             raise MembreInexistantError("Membre non trouvé.")
         if ISBN not in self.livres:
@@ -66,12 +68,13 @@ class Bibliotheque:
             raise LivreIndisponibleError("Livre déjà emprunté.")
 
         if len(membre.liste_livres_empruntes) >= self.MAX_EMPRUNTS:
-            raise QuotaEmpruntDepasseError("Quota dépassé.")
+            raise QuotaEmpruntDepasseError("Quota dépassé.") #ou QuotaEmpruntDepasseError()
 
         livre.statut = StatutLivre.EMPRUNTE
         membre.liste_livres_empruntes.append(ISBN)
         self.sauvegarder_livres()
         self.sauvegarder_membres()
+        #Permet de synchroniser application
         self.enregistrer_historique(id_membre, ISBN, "EMPRUNT")
 
     def retourner_livre(self, id_membre, ISBN):
@@ -90,7 +93,7 @@ class Bibliotheque:
             self.sauvegarder_membres()
             self.enregistrer_historique(id_membre, ISBN, "RETOUR")
         else:
-            raise Exception("Ce membre n'a pas emprunté ce livre.")
+            raise Exception("Ce membre n'a pas emprunté ce livre !")
 
     def sauvegarder_livres(self, chemin="livres"):
         try:
